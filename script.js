@@ -8,6 +8,16 @@ const spChar = (' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~').split('');
 console.log(spChar);
 function generatePassword() {
   console.log("it's working?");
+
+  //ask user how long they'd like pw to be and store it in pwLen
+  const pwLen = prompt("How long would you like your password to be?");
+  //ask user if they'd like special characters included and convert to uppercase
+  const spCharAns = prompt("Would you like special characters in your password?").toUpperCase();
+  console.log(spCharAns);
+
+
+
+
 }
 
 
@@ -15,22 +25,6 @@ function generatePassword() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//let pwLen = prompt("How long would you like your password to be?");
 
 
 

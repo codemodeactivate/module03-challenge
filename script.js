@@ -6,14 +6,26 @@ const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log(nums);
 const spChar = (' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~').split('');
 console.log(spChar);
+
+
 function generatePassword() {
   console.log("it's working?");
 
   //ask user how long they'd like pw to be and store it in pwLen
-  const pwLen = prompt("How long would you like your password to be?");
+  const pwLen = prompt("How long would you like your password to be? Must be at least 8 and no more than 128 characters.");
   //ask user if they'd like special characters included and convert to uppercase
-  const spCharAns = prompt("Would you like special characters in your password?").toUpperCase();
+  const lowCaseAns = prompt("Would you like lower case characters in your password? Yes/No").toUpperCase();
+  console.log(lowCaseAns);
+  //THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+  const upCaseAns = prompt("Would you like to include upper case character(s) in your password? Yes/No").toUpperCase();
+  console.log(upCaseAns);
+  const numericAns = prompt("Would you like to include numeric character(s) in your password? Yes/No").toUpperCase();
+  console.log(numericAns);
+  const spCharAns = prompt("Would you like to include special character(s) in your password? Yes/No").toUpperCase();
   console.log(spCharAns);
+
+
+
 
 
 
@@ -29,12 +41,12 @@ function generatePassword() {
 
 
 /*
-GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
+**GIVEN I need a new, secure password
+**WHEN I click the button to generate a password
+**THEN I am presented with a series of prompts for password criteria
+**WHEN prompted for password criteria
+**THEN I select which criteria to include in the password
+**WHEN prompted for the length of the password
 THEN I choose a length of at least 8 characters and no more than 128 characters
 WHEN asked for character types to include in the password
 THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters

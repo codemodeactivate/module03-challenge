@@ -13,6 +13,7 @@ function generatePassword() {
 
   //ask user how long they'd like pw to be and store it in pwLen
   const pwLen = prompt("How long would you like your password to be? Must be at least 8 and no more than 128 characters.");
+  console.log(pwLen);
   //ask user if they'd like special characters included and convert to uppercase
   const lowCaseAns = prompt("Would you like lower case characters in your password? Yes/No").toUpperCase();
   console.log(lowCaseAns);
@@ -25,9 +26,47 @@ function generatePassword() {
   console.log(spCharAns);
 
 
+  //can definitely refactor this by combining methods below with the ones above
+  //going to leave it for this exercise especially while i'm learning the more
+  //verbose code definitely helps me to follow the trail and understand
+  //what's happening or at least what I tried to have happen :)
+
+
+  //get first letter of each yes/no answer and compare against Y and N.
+  //This will account for users that type yes, YES, Yes, y, and Y for yes.
+  let lowCase = lowCaseAns.charAt(0);
+
+  let upCase = upCaseAns.charAt(0);
+  let numb = numericAns.charAt(0);
+  let spChar = spCharAns.charAt(0);
+
+  //THEN my input should be validated and at least one character type should be selected
+  //WHEN all prompts are answered
+
+  //do an if statement to check if all of the above are N. Also check to make
+  //sure the password meets the length requirements. If so,
+  //we must start over and give the user an alert that something went wrong.
+  //perhaps specify which condition(s) failed?
+  //ideally this would be done a different way from a UX standpoint, but just
+  //trying to follow instructions exactly.
+
+if (pwLen < 8 || pwLen > 128) {
+  alert("Password must a minimum of 8 characters and a maximum of 128 characters.");
+  return;
+}
 
 
 
+
+
+  //THEN a password is generated that matches the selected criteria
+  //WHEN the password is generated
+
+
+
+
+
+  //THEN the password is either displayed in an alert or written to the page
 
 
 }
@@ -47,10 +86,10 @@ function generatePassword() {
 **WHEN prompted for password criteria
 **THEN I select which criteria to include in the password
 **WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
+**THEN I choose a length of at least 8 characters and no more than 128 characters
+**WHEN asked for character types to include in the password
+**THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+**WHEN I answer each prompt
 THEN my input should be validated and at least one character type should be selected
 WHEN all prompts are answered
 THEN a password is generated that matches the selected criteria

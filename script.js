@@ -1,11 +1,36 @@
 // Assignment code here
 
-const alphabet = [...'abcdefghijklmnopqrstuvwxyz'];
+const alphabet = ("abcdefghijklmnopqrstuvwxyz").split('');
 console.log(alphabet);
 const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(nums);
+const spChar = (' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~').split('');
+console.log(spChar);
+function generatePassword() {
+  console.log("it's working?");
+}
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//let pwLen = prompt("How long would you like your password to be?");
 
 
 

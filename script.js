@@ -1,7 +1,9 @@
 // Assignment code here
 
-const alphabet = ("abcdefghijklmnopqrstuvwxyz").split('');
-console.log(alphabet);
+const alphabetLower = ("abcdefghijklmnopqrstuvwxyz").split('');
+console.log(alphabetLower);
+const alphabetUpper = ("abcdefghijklmnopqrstuvwxyz").toUpperCase().split('');
+console.log(alphabetUpper);
 const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 console.log(nums);
 const spChar = (' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~').split('');
@@ -35,7 +37,6 @@ function generatePassword() {
   //get first letter of each yes/no answer and compare against Y and N.
   //This will account for users that type yes, YES, Yes, y, and Y for yes.
   let lowCase = lowCaseAns.charAt(0);
-
   let upCase = upCaseAns.charAt(0);
   let numb = numericAns.charAt(0);
   let spChar = spCharAns.charAt(0);
@@ -54,14 +55,23 @@ if (pwLen < 8 || pwLen > 128) {
   alert("Password must a minimum of 8 characters and a maximum of 128 characters.");
   return;
 }
+//more checks could be produced to account for less expected user behavior
+//such as if the user enters YELLOW for the preceding questions it would trigger an
+//affirmative answer. I have to think this would be coded differently in an actual
+//functioning(get it?) application.
 
-
-
-
-
+if (lowCase === "N" && upCase === "N" && numb === "N" && spChar === "N") {
+  alert("You must choose at least one type of non alpha character to include in your password.");
+  return;
+}
   //THEN a password is generated that matches the selected criteria
   //WHEN the password is generated
 
+  //generate a random password that is the length of pwLen
+  var password = "";
+  //start it out as empty. iterate through pwLen times
+  //each cycle we will push one character based on the above inputs into the
+  //string.
 
 
 

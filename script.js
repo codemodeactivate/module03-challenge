@@ -4,7 +4,7 @@ const alphabetLower = ("abcdefghijklmnopqrstuvwxyz").split('');
 console.log(alphabetLower);
 const alphabetUpper = ("abcdefghijklmnopqrstuvwxyz").toUpperCase().split('');
 console.log(alphabetUpper);
-const nums = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+const nums = "0123456789";
 console.log(nums);
 const spChar = (' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~').split('');
 console.log(spChar);
@@ -17,14 +17,14 @@ function generatePassword() {
   const pwLen = prompt("How long would you like your password to be? Must be at least 8 and no more than 128 characters.");
   console.log(pwLen);
   //ask user if they'd like special characters included and convert to uppercase
-  const lowCaseAns = prompt("Would you like lower case characters in your password? Yes/No").toUpperCase();
+  const lowCaseAns = confirm("Would you like lower case characters in your password? (Confirm = Yes, Cancel = No)");
   console.log(lowCaseAns);
   //THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-  const upCaseAns = prompt("Would you like to include upper case character(s) in your password? Yes/No").toUpperCase();
+  const upCaseAns = confirm("Would you like to include upper case character(s) in your password? (Confirm = Yes, Cancel = No)");
   console.log(upCaseAns);
-  const numericAns = prompt("Would you like to include numeric character(s) in your password? Yes/No").toUpperCase();
+  const numericAns = confirm("Would you like to include numeric character(s) in your password? (Confirm = Yes, Cancel = No)");
   console.log(numericAns);
-  const spCharAns = prompt("Would you like to include special character(s) in your password? Yes/No").toUpperCase();
+  const spCharAns = confirm("Would you like to include special character(s) in your password? (Confirm = Yes, Cancel = No)");
   console.log(spCharAns);
 
 
@@ -36,11 +36,11 @@ function generatePassword() {
 
   //get first letter of each yes/no answer and compare against Y and N.
   //This will account for users that type yes, YES, Yes, y, and Y for yes.
-  let lowCase = lowCaseAns.charAt(0);
+  /*let lowCase = lowCaseAns.charAt(0);
   let upCase = upCaseAns.charAt(0);
   let numb = numericAns.charAt(0);
   let spChar = spCharAns.charAt(0);
-
+*/
   //THEN my input should be validated and at least one character type should be selected
   //WHEN all prompts are answered
 
@@ -60,7 +60,7 @@ if (pwLen < 8 || pwLen > 128) {
 //affirmative answer. I have to think this would be coded differently in an actual
 //functioning(get it?) application.
 
-if (lowCase === "N" && upCase === "N" && numb === "N" && spChar === "N") {
+if (!(lowCaseAns) && !(upCaseAns)  && !(numericAns)  && !(spCharAns)) {
   alert("You must choose at least one type of non alpha character to include in your password.");
   return;
 }
@@ -72,12 +72,31 @@ if (lowCase === "N" && upCase === "N" && numb === "N" && spChar === "N") {
   //start it out as empty. iterate through pwLen times
   //each cycle we will push one character based on the above inputs into the
   //string.
+  //start adding possible characters to pile of possibilities
+  let possibleChar = "";
+  if (lowCaseAns) {
+    possibleChar += alphabetLower;
 
+  }
+  if (upCaseAns) {
+    possibleChar += alphabetUpper;
 
+  }
+  if (numericAns) {
+    possibleChar += nums;
 
+  }
+  if (spCharAns) {
+    possibleChar += spChar;
 
+  }
   //THEN the password is either displayed in an alert or written to the page
 
+  for (let i=1; i<=pwLen; i++) {
+    //randomly select letter from possible char and append to pw
+
+  }
+//return pw
 
 }
 

@@ -68,7 +68,7 @@ if (!(lowCaseAns) && !(upCaseAns)  && !(numericAns)  && !(spCharAns)) {
   //WHEN the password is generated
 
   //generate a random password that is the length of pwLen
-  var password = "";
+  var newPassword = "";
   //start it out as empty. iterate through pwLen times
   //each cycle we will push one character based on the above inputs into the
   //string.
@@ -88,15 +88,19 @@ if (!(lowCaseAns) && !(upCaseAns)  && !(numericAns)  && !(spCharAns)) {
   }
   if (spCharAns) {
     possibleChar += spChar;
+    console.log(possibleChar);
 
   }
   //THEN the password is either displayed in an alert or written to the page
 
-  for (let i=1; i<=pwLen; i++) {
+  for (let i=0; i<pwLen; i++) {
     //randomly select letter from possible char and append to pw
+    var randChar = possibleChar[Math.floor(Math.random() * pwLen)];
+    newPassword += randChar;
+
 
   }
-//return pw
+return newPassword;
 
 }
 

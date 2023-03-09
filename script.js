@@ -4,7 +4,7 @@ const alphabetLower = ("abcdefghijklmnopqrstuvwxyz").split('');
 console.log(alphabetLower);
 const alphabetUpper = ("abcdefghijklmnopqrstuvwxyz").toUpperCase().split('');
 console.log(alphabetUpper);
-const nums = "0123456789";
+const nums = "0123456789".split('');
 console.log(nums);
 const spChar = (' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~').split('');
 console.log(spChar);
@@ -73,21 +73,24 @@ if (!(lowCaseAns) && !(upCaseAns)  && !(numericAns)  && !(spCharAns)) {
   //each cycle we will push one character based on the above inputs into the
   //string.
   //start adding possible characters to pile of possibilities
-  let possibleChar = "";
+  let possibleChar = [];
   if (lowCaseAns) {
-    possibleChar += alphabetLower;
+    possibleChar=possibleChar.concat(alphabetLower);
+    console.log(possibleChar);
 
   }
   if (upCaseAns) {
-    possibleChar += alphabetUpper;
+    possibleChar=possibleChar.concat(alphabetUpper);
+    console.log(possibleChar);
 
   }
   if (numericAns) {
-    possibleChar += nums;
+    possibleChar=possibleChar.concat(nums);
+    console.log(possibleChar);
 
   }
   if (spCharAns) {
-    possibleChar += spChar;
+    possibleChar=possibleChar.concat(spChar);
     console.log(possibleChar);
 
   }
@@ -95,11 +98,12 @@ if (!(lowCaseAns) && !(upCaseAns)  && !(numericAns)  && !(spCharAns)) {
 
   for (let i=0; i<pwLen; i++) {
     //randomly select letter from possible char and append to pw
-    var randChar = possibleChar[Math.floor(Math.random() * pwLen)];
+    var randChar = possibleChar[Math.floor(Math.random() * possibleChar.length)];
     newPassword += randChar;
 
 
   }
+console.log(newPassword);
 return newPassword;
 
 }
@@ -112,28 +116,16 @@ return newPassword;
 
 
 
-/*
-**GIVEN I need a new, secure password
-**WHEN I click the button to generate a password
-**THEN I am presented with a series of prompts for password criteria
-**WHEN prompted for password criteria
-**THEN I select which criteria to include in the password
-**WHEN prompted for the length of the password
-**THEN I choose a length of at least 8 characters and no more than 128 characters
-**WHEN asked for character types to include in the password
-**THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-**WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
-*/
 
+/*
 // Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
+
 
 // Write password to the #password input
+
+*/
+
+// Add event listener to generate button
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -141,6 +133,5 @@ function writePassword() {
   passwordText.value = password;
 
 }
-
-// Add event listener to generate button
+var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword);

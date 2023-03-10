@@ -76,22 +76,22 @@ if (!(lowCaseAns) && !(upCaseAns)  && !(numericAns)  && !(spCharAns)) {
   let possibleChar = [];
   if (lowCaseAns) {
     possibleChar=possibleChar.concat(alphabetLower);
-    console.log(possibleChar);
+
 
   }
   if (upCaseAns) {
     possibleChar=possibleChar.concat(alphabetUpper);
-    console.log(possibleChar);
+
 
   }
   if (numericAns) {
     possibleChar=possibleChar.concat(nums);
-    console.log(possibleChar);
+
 
   }
   if (spCharAns) {
     possibleChar=possibleChar.concat(spChar);
-    console.log(possibleChar);
+
 
   }
   //THEN the password is either displayed in an alert or written to the page
@@ -103,7 +103,7 @@ if (!(lowCaseAns) && !(upCaseAns)  && !(numericAns)  && !(spCharAns)) {
 
 
   }
-console.log(newPassword);
+
 return newPassword;
 
 }
